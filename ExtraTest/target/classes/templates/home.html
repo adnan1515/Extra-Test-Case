@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title th:text="${title}"> </title>
+        <link rel="stylesheet" th:href="@{/css/styles.css}" />
+        <script type="text/javascript" th:src="@{/scripts/script.js}"></script>
+        <link rel="icon" type="image/png" href="/images/logoimage.png" />
+    </head>
+    <body>
+        <div>
+            <h1>Extra Test Case</h1>
+            <hr />
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th><h3>Array Of Positive</h3></th>
+                    <th><h3>Array With Negative</h3></th>
+                    <th><h3>Random Numbers</h3></th>
+                    <th><h3>Random Strings</h3></th>
+                    <th><h3>Random Matrix</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="cell1">
+                        <form th:action="@{/array}" th:object="${inputs}" method="post">
+                            <table>
+                                <tr>
+                                    <td><input type="number" placeholder="no. of tests" id="tests" name="tests" min="1" max="1000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" placeholder="max array size" id="maxSize" name="maxSize" min="1" max="10000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" placeholder="max value" id="maxVal" name="maxVal" min="1" max="1000000000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><button class="button-84" role="button" type="submit" id="submitbtn" value="Submit">Generate</button></td>
+                                </tr>
+                            </table>
+                        </form>
+
+                        <textarea th:text="${pos}" placeholder="output" id="content1"></textarea>
+                    </td>
+                    <td>
+                        <form th:action="@{/negArray}" th:object="${inputs}" method="post">
+                            <table>
+                                <tr>
+                                    <td><input type="number" placeholder="no. of tests" id="tests" name="tests" min="1" max="1000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" placeholder="max array size" id="maxSize" name="maxSize" min="1" max="10000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" placeholder="max value" id="maxVal" name="maxVal" min="-1" max="1000000000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><button class="button-84" role="button" type="submit" id="submitbtn" value="Submit">Generate</button></td>
+                                </tr>
+                            </table>
+                        </form>
+
+                        <textarea th:text="${neg}" placeholder="output" id="content2"></textarea>
+                    </td>
+                    <td id="cell3">
+                        <form th:action="@{/random}" th:object="${random}" method="post">
+                            <table>
+                                <tr>
+                                    <td><input type="number" placeholder="no. of tests" id="tests" name="tests" min="1" max="100000000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" placeholder="max value" id="maxValue" name="maxValue" min="1" max="100000000" required /></td>
+                                </tr>
+                                <br />
+                                <tr>
+                                    <td><button class="button-84" role="button" type="submit" id="submitbtn" value="Submit">Generate</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <textarea th:text="${random}" placeholder="output" id="content3"></textarea>
+                    </td>
+                    <td id="cell4">
+                        <form th:action="@{/strings}" th:object="${random}" method="post">
+                            <table>
+                                <tr>
+                                    <td><input type="number" placeholder="no. of tests" id="tests" name="tests" min="1" max="100000000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" placeholder="max length" id="maxValue" name="maxValue" min="1" max="100000000" required /></td>
+                                </tr>
+                                <br />
+                                <tr>
+                                    <td><button class="button-84" role="button" type="submit" id="submitbtn" value="Submit">Generate</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <textarea th:text="${strings}" placeholder="output" id="content4"></textarea>
+                    </td>
+                    <td id="cell5">
+                        <form th:action="@{/matrix}" th:object="${matrix}" method="post">
+                            <table>
+                                <tr>
+                                    <td><input type="number" placeholder="no. of tests" id="tests" name="tests" min="1" max="100" required /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="number" placeholder="row size" id="rowSize" name="rowSize" min="1" max="1000" required />
+
+                                        <input type="number" placeholder="col size" id="colSize" name="colSize" min="1" max="1000" required />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="number" placeholder="max value" id="maxValue" name="maxValue" min="1" max="100000000" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><button class="button-84" role="button" type="submit" id="submitbtn" value="Submit">Generate</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <textarea th:text="${matrixtext}" placeholder="output" id="content5"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
